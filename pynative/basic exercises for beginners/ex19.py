@@ -33,32 +33,50 @@ IF BALANCE:
 PRINT TOTAL_TAX
 """
 
+# def calculate_tax(principal_amount):
+#     total_tax = 0
+#     balance = principal_amount
+
+#     # base condition
+#     if balance > 10_000:
+#         balance = balance - 10_000
+
+#     # second condition
+#     if balance > 10_000:
+#         balance = balance - 10_000
+#         tax = 10_000 * 10 / 100
+#         total_tax += tax
+#     else:
+#         tax = balance * 10 / 100
+#         total_tax += tax
+#         balance = 0
+    
+#     # third condition
+#     if balance:
+#         tax = balance * 20 / 100
+#         total_tax += tax
+    
+#     return total_tax
+
+# Optimised version
 def calculate_tax(principal_amount):
-    total_tax = 0
-    balance = principal_amount
+    tax_payable = 0
 
-    # base condition
-    if balance > 10_000:
-        balance = balance - 10_000
-
-    # second condition
-    if balance > 10_000:
-        balance = balance - 10_000
-        tax = 10_000 * 10 / 100
-        total_tax += tax
+    if principal_amount <= 10_000:
+        tax_payable = 0
+    elif principal_amount <= 20_000:
+        tax_payable = 0 + (10_000 % 10 / 100)
     else:
-        tax = balance * 10 / 100
-        total_tax += tax
-        balance = 0
-    
-    # third condition
-    if balance:
-        tax = balance * 20 / 100
-        total_tax += tax
-    
-    return total_tax
+        # firs condition 10000 tax is 0 %
+        # next condition is 10000 tax is 10 %
+        tax_payable = 0 + (10_000 * 10 / 100)
 
+        # remaining balance would be applicable for 20 % tax
+        tax_payable += 0 + ((principal_amount - 20000) * 20 / 100)
 
-result = calculate_tax(22000)
+    
+    return tax_payable
+
+result = calculate_tax(45000)
 
 print(result)
