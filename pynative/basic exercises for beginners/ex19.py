@@ -65,7 +65,7 @@ def calculate_tax(principal_amount):
     if principal_amount <= 10_000:
         tax_payable = 0
     elif principal_amount <= 20_000:
-        tax_payable = 0 + (10_000 % 10 / 100)
+        tax_payable = 0 + ((principal_amount - 10_000) % 10 / 100)
     else:
         # firs condition 10000 tax is 0 %
         # next condition is 10000 tax is 10 %
