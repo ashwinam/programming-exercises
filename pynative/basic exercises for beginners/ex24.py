@@ -12,15 +12,15 @@ next 1
 
 terms = 15
 
-pre = 0
-curr = 1
+num1, num2 = 0, 1
 
-print(pre, end=" ")
-print(curr, " ")
+for i in range(terms):
+    print(num1, end=" ")
 
-for i in range(terms - 2):
-    next_term = pre + curr
-    print(next_term, end=" ")
-    pre = curr
-    curr = next_term
+    # calculate next term
+    res = num1 + num2
+
+    # swap the variables
+    num1 = num2
+    num2 = res
 
